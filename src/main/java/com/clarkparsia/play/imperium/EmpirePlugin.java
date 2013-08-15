@@ -33,7 +33,7 @@ public class EmpirePlugin extends Plugin
 {
     private final Application application;
 
-    public ImperiumPlugin(Application application)
+    public EmpirePlugin(Application application)
     {
         this.application = application;
     }
