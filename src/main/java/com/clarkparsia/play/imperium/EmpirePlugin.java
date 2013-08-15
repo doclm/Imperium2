@@ -86,7 +86,7 @@ public class EmpirePlugin extends Plugin
         Map<String, String> aGlobalConfig = new HashMap<String, String>();
 //      aGlobalConfig.put(ConfigKeys.ANNOTATION_INDEX, "empire.config");
 
-        EmpireConfiguration aEmpireConfig = null; //DefaultEmpireModule.readConfiguration();
+        EmpireConfiguration aEmpireConfig = DefaultEmpireModule.readConfiguration();
 
         if (aEmpireConfig == null) {
             aEmpireConfig = new EmpireConfiguration(aGlobalConfig,
