@@ -24,6 +24,7 @@ import com.clarkparsia.empire.SupportsRdfId;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 import java.net.URI;
@@ -36,13 +37,14 @@ import java.net.URI;
  * @since 0.1
  */
 @MappedSuperclass
+@Entity
 public class RdfModel extends Model implements SupportsRdfId {
 
 	/**
 	 * Default support for managing and accessing the rdf:ID of this object
 	 */
 	@Column(name = "rdfid", nullable = false, unique=true)
-	public String rdfid;
+    public String rdfid;
 
 	/**
 	 * @inheritDoc
@@ -67,9 +69,6 @@ public class RdfModel extends Model implements SupportsRdfId {
 		}
 
 		super.save();
-
-		// this should be a safe cast
-//		return (T) this;
 	}
 
 	@Deprecated // exposed only to allow the sarge backwards migration.
@@ -93,9 +92,6 @@ public class RdfModel extends Model implements SupportsRdfId {
 		}
 
 		super.delete();
-
-		// this should be a safe case
-//		return (T) this;
 	}
 
 	/**
@@ -104,6 +100,7 @@ public class RdfModel extends Model implements SupportsRdfId {
 	public SupportsRdfId.RdfKey getRdfId() {
 		return rdfid == null ? null : new URIKey(URI.create(rdfid));
 	}
+
 
 	/**
 	 * @inheritDoc

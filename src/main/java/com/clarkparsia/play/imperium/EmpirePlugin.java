@@ -1,5 +1,6 @@
 package com.clarkparsia.play.imperium;
 
+import com.clarkparsia.empire.jena.JenaEmpireModule;
 import play.*;
 
 import java.util.Map;
@@ -18,12 +19,14 @@ import com.clarkparsia.empire.config.ConfigKeys;
 import com.clarkparsia.empire.config.io.ConfigReader;
 import com.clarkparsia.empire.config.io.impl.PropertiesConfigReader;
 import com.clarkparsia.empire.config.io.impl.XmlConfigReader;
+import com.clarkparsia.common.util.EnhancedProperties;
 import com.clarkparsia.empire.util.EmpireModule;
 import com.clarkparsia.empire.util.DefaultEmpireModule;
 
 import com.clarkparsia.empire.sesametwo.OpenRdfEmpireModule;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
 /**
@@ -121,13 +124,12 @@ public class EmpirePlugin extends Plugin
 
         Empire.init(aEmpireConfig,
                 aModules.toArray(new EmpireModule[aModules.size()]));
-
     }
 
     @Override
     public void onStop()
     {
         // you may want to tidy up resources here
-        Logger.info("MyExamplePlugin has stopped");
+        Logger.info("EmpirePlugin has stopped");
     }
 }
